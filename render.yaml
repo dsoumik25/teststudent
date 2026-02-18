@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e439a8c9494e8367b2959cfd3f326289d5353c3dce597945c535cf2d6d1865c2
-size 332
+﻿services:
+  - type: web
+    name: teststudent-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+
+  - type: static
+    name: teststudent-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    plan: free
